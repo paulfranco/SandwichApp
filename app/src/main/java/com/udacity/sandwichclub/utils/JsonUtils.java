@@ -16,18 +16,19 @@ public class JsonUtils {
 
     public static Sandwich parseSandwichJson(String json) {
 
-        try{
+        try {
             JSONObject jsonObject = new JSONObject(json);
 
-            JSONObject nameObject = jsonObject.getJSONObject("name");
-            String mainName = nameObject.getString("mainName");
-            JSONArray alsoKnownAs = nameObject.getJSONArray("alsoKnownAs");
+            // get the JSONObject
+            JSONObject obj = jsonObject.getJSONObject("name");
+            String mainName = obj.getString("mainName");
+            JSONArray alsoKnownAs = obj.getJSONArray("alsoKnownAs");
             ArrayList<String> alsoKnownAsArrayList = new ArrayList<>();
-            int looper = 0;
-            while(looper <alsoKnownAs.length())
-            {
-                alsoKnownAsArrayList.add(alsoKnownAs.getString(looper));
-                looper += 1;
+            int i = 0;
+            // loop through the also known as strings
+            while(i < alsoKnownAs.length()) {
+                alsoKnownAsArrayList.add(alsoKnownAs.getString(i));
+                i += 1;
             }
 
             String placeOfOrigin = jsonObject.getString("placeOfOrigin");
@@ -35,18 +36,16 @@ public class JsonUtils {
             String imageSrc = jsonObject.getString("image");
             JSONArray ingredients = jsonObject.getJSONArray("ingredients");
             ArrayList<String> ingredientsArrayList = new ArrayList<>();
-            looper = 0;
-            while (looper < ingredients.length())
-            {
-                ingredientsArrayList.add(ingredients.getString(looper));
-                looper += 1;
+            i = 0;
+            // Loop through the ingredients
+            while (i < ingredients.length()) {
+                ingredientsArrayList.add(ingredients.getString(i));
+                i += 1;
             }
             return new Sandwich(mainName, alsoKnownAsArrayList, placeOfOrigin, description, imageSrc, ingredientsArrayList);
 
-        }
-        catch(JSONException e)
-        {
-            Log.i(TAG, "An error had occurred on JSON Parsing");
+        } catch(JSONException e) {
+            Log.i(TAG, "An error occurred during JSON Parsing");
             e.printStackTrace();
             return null;
         }
