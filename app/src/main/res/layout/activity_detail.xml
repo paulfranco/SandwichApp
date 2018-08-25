@@ -19,68 +19,63 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical">
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:paddingRight="10dp">
-
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="105dp"
                         android:layout_height="wrap_content"
                         android:text="@string/detail_place_of_origin_label"
-                        android:textStyle="bold"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/detail_also_known_as_label"
-                        android:textStyle="bold"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/detail_ingredients_label"
-                        android:textStyle="bold"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/detail_description_label"
-                        android:textStyle="bold"
-                        android:paddingTop="60dp"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                        android:textStyle="bold" />
                     <TextView
                         android:id="@+id/origin_tv"
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="105dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
+                        android:text="@string/detail_also_known_as_label"
+                        android:textStyle="bold" />
                     <TextView
                         android:id="@+id/also_known_tv"
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="105dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
+                        android:text="@string/detail_ingredients_label"
+                        android:textStyle="bold" />
                     <TextView
                         android:id="@+id/ingredients_tv"
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="105dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
+                        android:text="@string/detail_description_label"
+                        android:textStyle="bold" />
                     <TextView
                         android:id="@+id/description_tv"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
-
+                        android:layout_height="wrap_content" />
                 </LinearLayout>
-
             </LinearLayout>
     </LinearLayout>
 </ScrollView>

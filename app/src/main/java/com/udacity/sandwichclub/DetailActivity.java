@@ -58,55 +58,47 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void populateUI(Sandwich sandwich) {
+        // Begin by setting to empty strings
         String alsoKnownAsFormattedString = "";
         String ingredientsFormattedString = "";
 
-        //TextView nameTextView = findViewById(R.id.name_tv);
+        //Initialize the TextViews
         TextView alsoKnownAsTextView = findViewById(R.id.also_known_tv);
         TextView originTextView = findViewById(R.id.origin_tv);
         TextView descriptionTextView = findViewById(R.id.description_tv);
         TextView ingredientsTextView = findViewById(R.id.ingredients_tv);
 
-        //nameTextView.setText(replaceMissingString(sandwich.getMainName()));
-
-
-        for (String string: sandwich.getAlsoKnownAs())
-        {
+        // get alsoKnownAs strings and place a comma and space after the string
+        for (String string: sandwich.getAlsoKnownAs()) {
             alsoKnownAsFormattedString += string + ", ";
         }
 
-        // used substring to remove the last two characters - this prevents displaying , at the end of the string.
-        if(alsoKnownAsFormattedString.length() > 0)
-        {
+        // remove the comma and space (, ) at the end of the string.
+        if(alsoKnownAsFormattedString.length() > 0) {
             alsoKnownAsFormattedString = alsoKnownAsFormattedString.substring(0, alsoKnownAsFormattedString.length()-2);
         }
 
+        // Set the TextView to the values in the Formatted String
         alsoKnownAsTextView.setText(replaceMissingString(alsoKnownAsFormattedString));
 
-
-
+        // Set the text in originTextView
         originTextView.setText(replaceMissingString(sandwich.getPlaceOfOrigin()));
+        // Set the text in descriptionTextView
         descriptionTextView.setText(replaceMissingString(sandwich.getDescription()));
 
-
-
-        for (String string : sandwich.getIngredients())
-        {
+        // Set ingredients on a new line
+        for (String string : sandwich.getIngredients()) {
             ingredientsFormattedString += string + "\n";
         }
-
+        // Set text on ingredientsTextView after the new line has been added after each ingredient
         ingredientsTextView.setText(replaceMissingString(ingredientsFormattedString));
-
     }
-    // Helper method to validate the given string value and replace with missing info text if does not have data.
-    private String replaceMissingString(String string)
-    {
-        if (string.equals("") || string.length() < 0)
-        {
-            return "There is data for sandwich";
-        }
-        else
-        {
+
+    // replace with missing info text with "No Data".
+    private String replaceMissingString(String string) {
+        if (string.equals("") || string.length() < 0) {
+            return "No Data";
+        } else {
             return string;
         }
     }
